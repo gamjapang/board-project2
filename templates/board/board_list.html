@@ -1,0 +1,45 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+{% if board_list %}
+<ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">제목</th>
+        <th scope="col">내용</th>
+        <th scope="col">날짜</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+ {% for board in board_list %}
+ <tr>
+  <th >{{ board.id }}</th>
+  <td><a href="/board/{{ board.id }}/">{{ board.subject }}</a></td>
+  <td>{{ board.content }}</td>
+  <td>{{ board.create_date }}</td>
+</tr>
+{% endfor %}
+</ul>
+{% else %}
+<p>게시글이 없습니다.</p>
+{% endif %}
+
+</tbody>
+<tr>
+</tr>
+</table>
+
+<button type="button" class="btn btn-primary active" id="btn" 
+	onclick="document.location.href='http://127.0.0.1:8000/board/create/'">등록</button>
+
+<button type="button" class="btn btn-primary active" id="btn" 
+	onclick="document.location.href='http://127.0.0.1:8000/admin/board/board/'">수정</button>
+
+  <button type="button" class="btn btn-primary active" id="btn" 
+	onclick="document.location.href='http://127.0.0.1:8000/admin/board/board/'">삭제</button>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
